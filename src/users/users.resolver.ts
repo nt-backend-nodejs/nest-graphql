@@ -22,7 +22,7 @@ export class UsersResolver {
 
   @Mutation(() => String)
   async signIn(@Args('loginInput') loginInput: LoginInput): Promise<string> {
-    const user = this.usersService.findByEmail(loginInput.email);
+    const user = await this.usersService.findByEmail(loginInput.email);
     if (!user) {
       throw new Error('User not found');
     }
@@ -31,5 +31,10 @@ export class UsersResolver {
       throw new Error('Invalid password');
     }
     return this.jwtService.sign({ id: user.id }); // JWT qaytariladi
+  }
+
+  @Query(() => [User])
+  async users(): Promise<User[]> {
+    return this.usersService.findAll();
   }
 }
