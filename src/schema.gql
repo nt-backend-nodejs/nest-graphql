@@ -2,29 +2,29 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Todo {
-  id: Int!
-  name: String!
+type User {
+  """Example field (placeholder)"""
+  exampleField: Int!
 }
 
 type Query {
-  getAllTodo: [Todo!]!
-  todo(id: Int!): Todo!
+  users: [User!]!
+  user(id: Int!): User!
 }
 
 type Mutation {
-  createTodo(createTodoInput: CreateTodoInput!): Todo!
-  updateTodo(updateTodoInput: UpdateTodoInput!): Todo!
-  removeTodo(id: Int!): Todo!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
 }
 
-input CreateTodoInput {
+input CreateUserInput {
   """Example field (placeholder)"""
-  id: Int!
-  name: String!
+  exampleField: Int!
 }
 
-input UpdateTodoInput {
+input UpdateUserInput {
+  """Example field (placeholder)"""
+  exampleField: Int
   id: Int!
-  name: String
 }
